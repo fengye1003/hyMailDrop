@@ -169,6 +169,13 @@ Two Graph quirks the client works around (both cost real debugging time):
 
 ## Known limits
 
+* **Covers get eaten while the device is online.** A Kindle connected to WiFi refreshes its
+  library metadata on its own, and it replaces sideloaded books' covers with a 961-byte
+  "no image available" placeholder (measured: 5 books on the test device). hyMailDrop never
+  touches metadata -- it only writes files into `/documents` -- but you will likely meet this.
+  Repair it with **[bookfere/BookFere-Tools](https://github.com/bookfere/BookFere-Tools)** and
+  its *Fix Cover* (a separate project, no relation to this one). Handy rule of thumb when
+  hunting bad covers: **a thumbnail under 2000 bytes is broken**.
 * **One mailbox, one device.** No multi-account support.
 * **No `referenceAttachment`** (OneDrive share links) — only real file attachments.
 * **Plain attachments only**: no HTML "daily news" generation yet. The plumbing (a rendered page

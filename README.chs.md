@@ -143,6 +143,10 @@ python3 bin/hyMailDrop.py selftest      # 离线自检，不联网
 
 ## 已知限制
 
+* **设备联网时封面会被「吃掉」**：Kindle 连着 WiFi 会自己刷新书库元数据，把 sideload 进去的书的封面
+  换成一张 961 字节的「暂无图片」占位图（真机实测 5 本中招）。hyMailDrop 从不碰元数据（只往
+  `/documents` 写文件），但你很可能会遇到。用 **[bookfere/BookFere-Tools](https://github.com/bookfere/BookFere-Tools)**
+  的 **Fix Cover** 修（另一个项目，与本项目无关）。找坏封面的判据：**缩略图小于 2000 字节 = 损坏**。
 * **一个邮箱、一台设备**，不支持多账号。
 * **不支持 `referenceAttachment`**（OneDrive 分享链接），只处理真正的文件附件。
 * **只投附件**，还没有"每日新闻"那种生成一页 HTML 的能力 —— 但管道已经通了（把渲染好的页面丢进 `/documents` 即可），这是最顺的下一步。
