@@ -1,0 +1,73 @@
+{
+    "items": [
+        {
+            "name": "hyMailDrop",
+            "priority": 0,
+            "items": [
+                {
+                    "name": "1. Login Outlook (device code)",
+                    "priority": 0,
+                    "action": "./bin/login.sh",
+                    "exitmenu": true,
+                    "checked": false,
+                    "status": false,
+                    "internal": "status hyMailDrop: waiting for you to approve the code in a browser."
+                },
+                {
+                    "name": "2. Sync now (fetch new books)",
+                    "priority": 1,
+                    "action": "./bin/sync.sh",
+                    "exitmenu": true,
+                    "checked": false,
+                    "status": false,
+                    "internal": "status hyMailDrop: syncing the mailbox."
+                },
+                {
+                    "name": "Auto-sync: ON (every 15 min while awake)",
+                    "priority": 2,
+                    "action": "./bin/watch.sh 900",
+                    "exitmenu": false,
+                    "checked": false,
+                    "status": false,
+                    "internal": "status hyMailDrop: auto-sync on."
+                },
+                {
+                    "name": "Auto-sync: OFF",
+                    "priority": 3,
+                    "action": "./bin/watch-stop.sh",
+                    "exitmenu": false,
+                    "checked": false,
+                    "status": false,
+                    "internal": "status hyMailDrop: auto-sync off."
+                },
+                {
+                    "name": "Show status",
+                    "priority": 4,
+                    "action": "./bin/status.sh",
+                    "exitmenu": false,
+                    "checked": false,
+                    "status": false,
+                    "internal": "status hyMailDrop: status shown."
+                },
+                {
+                    "name": "Show log (last 10 lines)",
+                    "priority": 5,
+                    "action": "./bin/log.sh",
+                    "exitmenu": false,
+                    "checked": false,
+                    "status": false,
+                    "internal": "status hyMailDrop: log shown."
+                },
+                {
+                    "name": "Forget delivered books (clear ledger)",
+                    "priority": 6,
+                    "action": "./bin/ledger-clear.sh",
+                    "exitmenu": false,
+                    "checked": false,
+                    "status": false,
+                    "internal": "status hyMailDrop: ledger cleared."
+                }
+            ]
+        }
+    ]
+}

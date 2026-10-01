@@ -1,0 +1,15 @@
+# runtime state -- NEVER commit:
+#   device/creds.json holds the Outlook refresh token (it IS your mailbox credential)
+#   device/state/ holds the access token, the ledger and logs
+device/creds.json
+device/state/
+device/config.json
+
+# internal working notes (this directory doubles as the published repo root)
+CHECKPOINT.md
+_probe-*.py
+_cacert.pem
+*.log
+*.pyc
+__pycache__/
+.DS_Store
